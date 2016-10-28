@@ -3,7 +3,7 @@ import junit.framework.TestCase;
 
 public class LoginCheckTest extends TestCase 
 {
-    public void thisAlwaysPasses() {
+    public void testThisAlwaysPasses() {
         assertTrue(true);
     }
 	
@@ -17,7 +17,7 @@ public class LoginCheckTest extends TestCase
 	//Input(s): userName = "usrnm"
 	//Expected output(s): false
 	
-	public void loginCheckTest0001()
+	public void testvalidateUserName0001()
 	{
 		LoginCheck loginCheckTest = new LoginCheck();
 		
@@ -29,7 +29,7 @@ public class LoginCheckTest extends TestCase
 	//Input(s): userName = "username test"
 	//Expected output(s): true
 	
-	public void loginCheckTest0002()
+	public void testvalidateUserName0002()
 	{
 		LoginCheck loginCheckTest = new LoginCheck();
 		
@@ -41,10 +41,46 @@ public class LoginCheckTest extends TestCase
 	//Input(s): userName = "username test greater than"
 	//Expected output(s): false
 	
-	public void loginCheckTest0003()
+	public void testvalidateUserName0003()
 	{
 		LoginCheck loginCheckTest = new LoginCheck();
 		
 		assertFalse(loginCheckTest.validateUserName("username test greater than"));
+	}
+	
+	//Test #4:
+	//Test objective: test password of < 4 characters
+	//Input(s): userName = "pwd"
+	//Expected output(s): false
+	
+	public void testvalidatePassword0001()
+	{
+		LoginCheck loginCheckTest = new LoginCheck();
+		
+		assertFalse(loginCheckTest.validatePassword("pwd"));
+	}
+	
+	//Test #5:
+	//Test objective: test password of > 4 and < 9 characters
+	//Input(s): userName = "passwd"
+	//Expected output(s): false
+	
+	public void testvalidatePassword0002()
+	{
+		LoginCheck loginCheckTest = new LoginCheck();
+		
+		assertTrue(loginCheckTest.validatePassword("passwd"));
+	}
+	
+	//Test #6:
+	//Test objective: test password of > 9 characters
+	//Input(s): userName = "password test greater than"
+	//Expected output(s): false
+	
+	public void testvalidatePassword0003()
+	{
+		LoginCheck loginCheckTest = new LoginCheck();
+		
+		assertFalse(loginCheckTest.validatePassword("password test greater than"));
 	}
 }
